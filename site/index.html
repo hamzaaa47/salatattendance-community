@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SalatAttendance Community</title>
+<meta name="description" content="Offline-App zur Erfassung der Gebetsanwesenheit auf dem Android-Tablet. Ohne Konto, ohne Internet.">
+<style>
+:root{
+  --bg:#0f1624; --panel:#1a2234; --panel2:#232d42; --text:#e8edf5; --muted:#9aa7bd;
+  --accent:#8dffb0; --accent-d:#005c42; --line:#2c3850;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--text); background:var(--bg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  /* Dezentes Sternmuster (achtzackig), rein per CSS/SVG, kein Bild nötig */
+  background-image:
+    radial-gradient(ellipse at 50% -10%, rgba(0,92,66,.55), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 6l7 14 15-7-7 15 14 7-14 7 7 15-15-7-7 14-7-14-15 7 7-15-14-7 14-7-7-15 15 7z' fill='none' stroke='%238dffb0' stroke-opacity='.07' stroke-width='1'/%3E%3C/svg%3E");
+  background-attachment:fixed;
+}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+nav b{letter-spacing:.3px}
+nav a{margin-left:18px;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.hero{text-align:center;padding:48px 0 28px}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.15;margin:0 0 14px}
+.hero h1 span{color:var(--accent)}
+.hero p{max-width:640px;margin:0 auto 26px;color:var(--muted);font-size:18px}
+.btn{display:inline-block;padding:13px 26px;border-radius:14px;background:var(--accent-d);color:#fff;text-decoration:none;font-weight:600;border:1px solid var(--accent)}
+.btn.ghost{background:transparent;color:var(--accent);margin-left:10px}
+.btn:hover{filter:brightness(1.15)}
+.shot{border-radius:14px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.5);width:100%;height:auto;display:block}
+.hero .shot{max-width:900px;margin:36px auto 0}
+section{padding:54px 0}
+h2{font-size:30px;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:720px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:0 0 6px;color:var(--accent);font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.gallery{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
+figure{margin:0}
+figcaption{margin-top:10px;color:var(--muted);font-size:15px}
+figcaption b{color:var(--text)}
+ol{padding-left:20px}
+li{margin:6px 0}
+code{background:var(--panel2);padding:2px 7px;border-radius:6px;font-size:14px}
+footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:14px;text-align:center}
+@media(max-width:520px){.gallery{grid-template-columns:1fr}.btn.ghost{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <b>☪ SalatAttendance Community</b>
+    <div><a href="#funktionen">Funktionen</a><a href="#bilder">Bilder</a><a href="#start">Start</a><a href="https://github.com/hamzaaa47/salatattendance-community">GitHub</a></div>
+  </nav>
+
+  <header class="hero">
+    <h1>Gebetsanwesenheit <span>einfach erfassen.</span></h1>
+    <p>Eine Offline-App für Android-Tablets: Besucher tippen Tanzeem und Halqa an, die App zählt für das aktuelle Gebet. Ohne Konto, ohne Internet, alle Daten bleiben auf dem Gerät.</p>
+    <a class="btn" href="https://github.com/hamzaaa47/salatattendance-community/releases/latest">APK herunterladen</a>
+    <a class="btn ghost" href="#start">So startet man</a>
+    <img class="shot" src="assets/shots/01-erfassung.png" alt="Erfassungsseite mit aktuellem Gebet und Tanzeem-Auswahl">
+  </header>
+
+  <section id="funktionen">
+    <h2>Funktionen</h2>
+    <p class="lead">Gebaut für den Einsatz an der Tür: große Tasten, kein Scrollen, alles auf einen Blick.</p>
+    <div class="grid">
+      <div class="card"><h3>Erfassung in zwei Taps</h3><p>Aktuelles Gebet oben, darunter Tanzeem und dann Halqa wählen. Das Gebet erkennt die App selbst anhand der Uhrzeit.</p></div>
+      <div class="card"><h3>Gebetszeiten mit Startdatum</h3><p>Mehrere Sätze von Gebetszeiten, jeweils „gültig ab“ einem Datum. Laufende, geplante und beendete Sätze sind getrennt.</p></div>
+      <div class="card"><h3>Jummah inklusive</h3><p>Freitags ersetzt Jummah das Sohr-Gebet. Das Erfassungsfenster ist fest 45 Min davor und 60 Min danach.</p></div>
+      <div class="card"><h3>Prüfungen eingebaut</h3><p>Reihenfolge der Gebete, überlappende Fenster und doppelte Gruppennamen werden vor dem Speichern abgefangen.</p></div>
+      <div class="card"><h3>Statistik pro Tag</h3><p>Tabelle und Kreisdiagramm je Gebet, mit Wochentag. Gebete lassen sich gezielt oder komplett zurücksetzen.</p></div>
+      <div class="card"><h3>PIN-geschützt</h3><p>Einstellungen nur mit eigener PIN. Falsche Eingaben werden mit Zeitpunkt festgehalten, nach 10 Fehlversuchen gibt es eine kurze Sperre.</p></div>
+      <div class="card"><h3>Gebetszeiten in der Fußzeile</h3><p>Aktuelle und kommende Zeiten wechseln alle 10 Sekunden, mit „Gültig bis/ab“. Lässt sich abschalten.</p></div>
+      <div class="card"><h3>Komplett offline</h3><p>Keine Cloud, keine Konten, keine Werbung. Gespeichert wird lokal auf dem Tablet.</p></div>
+    </div>
+  </section>
+
+  <section id="bilder">
+    <h2>Bilder</h2>
+    <p class="lead">Aufnahmen vom Android-Tablet (Querformat).</p>
+    <div class="gallery">
+      <figure><img class="shot" loading="lazy" src="assets/shots/02-halqa.png" alt="Halqa-Auswahl"><figcaption><b>Halqa wählen.</b> Bis zu 16 Einträge, die Tasten passen sich der Anzahl an.</figcaption></figure>
+      <figure><img class="shot" loading="lazy" src="assets/shots/03-einstellungen.png" alt="Einstellungen"><figcaption><b>Einstellungen.</b> Gebetszähler, Statistik und Sicherheit auf einer Seite.</figcaption></figure>
+      <figure><img class="shot" loading="lazy" src="assets/shots/04-gebetszeiten.png" alt="Gebetszeiten bearbeiten"><figcaption><b>Gebetszeiten.</b> Aktiver und geplanter Satz, begonnene Gebete sind gesperrt.</figcaption></figure>
+      <figure><img class="shot" loading="lazy" src="assets/shots/06-zeitfenster.png" alt="Zeitfenster"><figcaption><b>Zeitfenster.</b> Vor/nach Gebetsbeginn, die berechneten Fenster sehen Sie sofort.</figcaption></figure>
+      <figure style="grid-column:1/-1"><img class="shot" loading="lazy" src="assets/shots/05-statistik.png" alt="Statistik"><figcaption><b>Statistik.</b> Zahlen je Halqa und Tanzeem, dazu ein Kreisdiagramm.</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="start">
+    <h2>So startet man</h2>
+    <ol>
+      <li>APK von der <a href="https://github.com/hamzaaa47/salatattendance-community/releases/latest">Release-Seite</a> laden und installieren (Android 7.0 oder neuer, „Unbekannte Quellen“ erlauben).</li>
+      <li>Ersteinrichtung: Gebetszeiten, Zeitfenster, Tanzeem/Halqa und eine sechsstellige Einstellungen-PIN festlegen.</li>
+      <li>Danach zeigt die Startseite das aktuelle Gebet. Außerhalb eines Fensters steht dort „Derzeit kein Gebet“ mit dem nächsten Gebet.</li>
+    </ol>
+    <p class="lead" style="margin-top:18px">Zum Selbstbauen: <code>flutter pub get</code> und <code>flutter run</code>, Details im <a href="https://github.com/hamzaaa47/salatattendance-community#readme">README</a>.</p>
+  </section>
+
+  <footer>
+    SalatAttendance Community · offline, ohne Konto · <a href="https://github.com/hamzaaa47/salatattendance-community">Quellcode</a>
+  </footer>
+</div>
+</body>
+</html>

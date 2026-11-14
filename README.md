@@ -1,0 +1,55 @@
+# SalatAttendance Community
+
+Offline-App für Android-Tablets zur Erfassung der Gebetsanwesenheit. Besucher tippen Tanzeem und Halqa an, die App zählt für das aktuelle Gebet. Ohne Konto, ohne Internet, alle Daten bleiben auf dem Gerät.
+
+![Erfassungsseite](docs/screenshots/01-erfassung.png)
+
+## Funktionen
+
+- **Erfassung in zwei Taps:** aktuelles Gebet oben, dann Tanzeem und Halqa wählen. Das Gebet ergibt sich aus der Uhrzeit.
+- **Gebetszeiten mit Startdatum:** mehrere Sätze, jeweils „gültig ab“ einem Datum (aktiv, geplant, beendet). Heute bereits begonnene Gebete lassen sich nicht mehr ändern.
+- **Jummah:** freitags ersetzt Jummah das Sohr-Gebet, das Fenster ist fest 45 Min davor und 60 Min danach.
+- **Zeitfenster:** global einstellbar (Minuten vor/nach Gebetsbeginn), die berechneten Fenster werden angezeigt.
+- **Prüfungen:** Reihenfolge der Gebete, überlappende Fenster, doppelte Gruppennamen.
+- **Tanzeem/Halqa:** 2 bis 16 Einträge, ab 9 in zwei Spalten.
+- **Statistik:** je Tag und Gebet als Tabelle und Kreisdiagramm, Zurücksetzen komplett oder gefiltert.
+- **Sicherheit:** Einstellungen nur mit sechsstelliger PIN, Fehlversuche werden protokolliert, nach 10 Fehlversuchen kurze Sperre.
+- **Fußzeile:** aktuelle und kommende Gebetszeiten mit „Gültig bis/ab“, abschaltbar.
+
+## Bilder
+
+| | |
+|---|---|
+| ![Halqa](docs/screenshots/02-halqa.png) | ![Einstellungen](docs/screenshots/03-einstellungen.png) |
+| ![Gebetszeiten](docs/screenshots/04-gebetszeiten.png) | ![Zeitfenster](docs/screenshots/06-zeitfenster.png) |
+| ![Statistik](docs/screenshots/05-statistik.png) | |
+
+## Installation
+
+1. APK von der [Release-Seite](../../releases/latest) herunterladen und auf dem Tablet installieren (Android 7.0 oder neuer, „Unbekannte Quellen“ erlauben).
+2. Ersteinrichtung: Gebetszeiten, Zeitfenster, Tanzeem/Halqa und eine eigene sechsstellige Einstellungen-PIN festlegen. Verwende für diese App eine eigene PIN.
+3. Später lässt sich alles unter **Einstellungen** ändern.
+
+## Selbst bauen
+
+Voraussetzungen: Flutter mit Dart ab 3.10.1, JDK 17 oder 21, Android SDK mit API 36.
+
+```sh
+flutter pub get
+flutter test
+flutter run
+```
+
+`flutter build apk --debug` erstellt eine lokal installierbare Test-APK. Für ein signiertes Release eine eigene Signatur und die lokale `android/key.properties` mit `storeFile`, `storePassword`, `keyAlias` und `keyPassword` einrichten, dann `flutter build apk --release`. Keystore und `key.properties` gehören nicht ins Repository.
+
+## Datenschutz
+
+Die App arbeitet offline, das Release hat keine Internetberechtigung. Siehe [PRIVACY.md](PRIVACY.md).
+
+## Lizenz
+
+[MIT](LICENSE)
+
+## Webseite
+
+Die Projektseite liegt in [`site/`](site/) und wird per GitHub Pages veröffentlicht (Workflow `.github/workflows/pages.yml`). Einmalig im Repository unter Settings → Pages die Quelle „GitHub Actions“ wählen.
