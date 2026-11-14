@@ -17,6 +17,7 @@ import 'package:salatattendance/views/header_subtitle_view.dart';
 import 'package:salatattendance/views/change_pin_view.dart';
 import 'package:salatattendance/views/pin_failures_view.dart';
 import 'package:salatattendance/views/reset_stats_view.dart';
+import 'package:salatattendance/views/data_view.dart';
 import 'package:salatattendance/app_config.dart';
 import 'package:salatattendance/theme/app_theme.dart';
 import 'package:salatattendance/services/prayer_time_storage_service.dart';
@@ -78,6 +79,7 @@ class SalatAttendanceApp extends StatelessWidget {
         "/changePin": (_) => const ChangePinView(),
         "/pinFailures": (_) => const PinFailuresView(),
         "/resetStats": (_) => const ResetStatsView(),
+        "/data": (_) => const DataView(),
       },
     );
   }

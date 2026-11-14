@@ -19,6 +19,7 @@ import 'package:salatattendance/views/no_prayer_view.dart';
 import 'package:salatattendance/views/pin_failures_view.dart';
 import 'package:salatattendance/views/prayer_time_window_view.dart';
 import 'package:salatattendance/views/prayer_times_view.dart';
+import 'package:salatattendance/views/data_view.dart';
 import 'package:salatattendance/views/reset_stats_view.dart';
 import 'package:salatattendance/views/settings_view.dart';
 import 'package:salatattendance/views/stats_view.dart';
@@ -63,6 +64,7 @@ void main() {
     'pinFailures': () => const PinFailuresView(),
     'stats': () => const StatsView(),
     'resetStats': () => const ResetStatsView(),
+    'data': () => const DataView(),
   };
   const sizes = [
     Size(1280, 800),

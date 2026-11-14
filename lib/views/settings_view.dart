@@ -46,6 +46,7 @@ class SettingsView extends StatelessWidget {
     ];
     final stats = [
       tile(Icons.bar_chart, "Statistik", "Auswertung anzeigen", "/stats"),
+      tile(Icons.ios_share, "Daten", "Anwesenheit als CSV", "/data"),
       tile(
         Icons.delete_forever,
         "Zurücksetzen",
@@ -77,7 +78,7 @@ class SettingsView extends StatelessWidget {
           final sections = [
             (title: "Gebetszähler", tiles: counter, cols: 2, flex: 2),
             (
-              title: "Statistik",
+              title: "Statistik und Daten",
               tiles: stats,
               cols: wide ? 1 : 2,
               flex: wide ? 1 : 1,

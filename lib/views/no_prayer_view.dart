@@ -28,52 +28,6 @@ class NoPrayerView extends StatelessWidget {
     }
   }
 
-  void _refresh(BuildContext context) {
-    final notifier = context.read<PrayerTimesNotifier>();
-    notifier.reload();
-    final newTimes = notifier.times;
-
-    if (newTimes.isEmpty) {
-      showAppSnackbar(
-        context,
-        "Gebetszeiten konnten nicht geladen werden.",
-        AppConfig.redColor,
-      );
-      return;
-    }
-
-    final currentPrayer = PrayerUtils.getCurrentPrayer(newTimes);
-    if (currentPrayer != AppConfig.texts["noActivePrayer"]!) {
-      showAppSnackbar(
-        context,
-        "Neu geprüft. Gebet ist jetzt aktiv. Anwesenheit kann erfasst werden.",
-        AppConfig.secondaryColor,
-      );
-      return;
-    }
-
-    final next = PrayerUtils.getNextPrayer(newTimes);
-    final nextWindowStart = PrayerUtils.getGroupWindow(
-      next.time,
-      next.names,
-      before: AppConfig.prayerBeforeMinutes,
-      after: AppConfig.prayerAfterMinutes,
-    ).start;
-
-    final seconds = nextWindowStart.difference(DateTime.now()).inSeconds;
-    final safeSeconds = seconds < 0 ? 0 : seconds;
-    final mins = safeSeconds ~/ 60;
-    final secs = safeSeconds % 60;
-
-    showAppSnackbar(
-      context,
-      (mins == 0 && secs == 0)
-          ? "Bitte warten Sie einen Moment."
-          : "Bitte warten Sie noch $mins Min und $secs Sek.",
-      AppConfig.secondaryColor,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final times = context.watch<PrayerTimesNotifier>().times;
@@ -118,11 +72,6 @@ class NoPrayerView extends StatelessWidget {
               nextText ?? "⚠️ Gebetszeiten konnten nicht geladen werden",
               style: theme.titleMedium,
               textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: AppUi.gapL),
-            ActionButton(
-              label: "Aktualisieren",
-              onPressed: () => _refresh(context),
             ),
           ],
         ),

@@ -364,7 +364,7 @@ class ButtonGrid extends StatelessWidget {
   }
 }
 
-/// Haupt-Aktion einer Seite (Speichern, Aktualisieren, …): feste Breite,
+/// Haupt-Aktion einer Seite (Speichern, Beenden, …): feste Breite,
 /// zentriert, nie über die ganze Seite gestreckt.
 class ActionButton extends StatelessWidget {
   const ActionButton({

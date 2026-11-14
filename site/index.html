@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SalatAttendance Community</title>
-<meta name="description" content="Offline-App zur Erfassung der Gebetsanwesenheit auf dem Android-Tablet. Ohne Konto, ohne Internet.">
+<meta name="description" content="Offline-App zur Erfassung der Gebetsanwesenheit auf dem Android-Tablet. Ohne Konto, ohne Cloud.">
 <style>
 :root{
   --bg:#0f1624; --panel:#1a2234; --panel2:#232d42; --text:#e8edf5; --muted:#9aa7bd;
@@ -63,7 +63,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
 
   <header class="hero">
     <h1>Gebetsanwesenheit <span>einfach erfassen.</span></h1>
-    <p>Eine Offline-App für Android-Tablets: Besucher tippen Tanzeem und Halqa an, die App zählt für das aktuelle Gebet. Ohne Konto, ohne Internet, alle Daten bleiben auf dem Gerät.</p>
+    <p>Eine Offline-App für Android-Tablets: Besucher tippen Tanzeem und Halqa an, die App zählt für das aktuelle Gebet. Ohne Konto und ohne Cloud, alle Daten bleiben auf dem Gerät. Auf Wunsch lässt sich die Anwesenheit als CSV übertragen.</p>
     <a class="btn" href="https://github.com/hamzaaa47/salatattendance-community/releases/latest">APK herunterladen</a>
     <a class="btn ghost" href="#start">So startet man</a>
     <img class="shot" src="assets/shots/01-erfassung.png" alt="Erfassungsseite mit aktuellem Gebet und Tanzeem-Auswahl">
@@ -80,7 +80,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
       <div class="card"><h3>Statistik pro Tag</h3><p>Tabelle und Kreisdiagramm je Gebet, mit Wochentag. Gebete lassen sich gezielt oder komplett zurücksetzen.</p></div>
       <div class="card"><h3>PIN-geschützt</h3><p>Einstellungen nur mit eigener PIN. Falsche Eingaben werden mit Zeitpunkt festgehalten, nach 10 Fehlversuchen gibt es eine kurze Sperre.</p></div>
       <div class="card"><h3>Gebetszeiten in der Fußzeile</h3><p>Aktuelle und kommende Zeiten wechseln alle 10 Sekunden, mit „Gültig bis/ab“. Lässt sich abschalten.</p></div>
-      <div class="card"><h3>Komplett offline</h3><p>Keine Cloud, keine Konten, keine Werbung. Gespeichert wird lokal auf dem Tablet.</p></div>
+      <div class="card"><h3>Daten übertragen</h3><p>Die Anwesenheit als CSV für Excel: per WLAN mit QR-Code (iPhone, Android, PC) oder über das Teilen-Menü von Android.</p></div>
+      <div class="card"><h3>Offline und lokal</h3><p>Keine Cloud, keine Konten, keine Werbung. Gespeichert wird auf dem Tablet. Das Netz wird nur für die WLAN-Übertragung genutzt, auf Knopfdruck.</p></div>
     </div>
   </section>
 
@@ -92,6 +93,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
       <figure><img class="shot" loading="lazy" src="assets/shots/03-einstellungen.png" alt="Einstellungen"><figcaption><b>Einstellungen.</b> Gebetszähler, Statistik und Sicherheit auf einer Seite.</figcaption></figure>
       <figure><img class="shot" loading="lazy" src="assets/shots/04-gebetszeiten.png" alt="Gebetszeiten bearbeiten"><figcaption><b>Gebetszeiten.</b> Aktiver und geplanter Satz, begonnene Gebete sind gesperrt.</figcaption></figure>
       <figure><img class="shot" loading="lazy" src="assets/shots/06-zeitfenster.png" alt="Zeitfenster"><figcaption><b>Zeitfenster.</b> Vor/nach Gebetsbeginn, die berechneten Fenster sehen Sie sofort.</figcaption></figure>
+      <figure><img class="shot" loading="lazy" src="assets/shots/07-daten.png" alt="Daten übertragen"><figcaption><b>Daten.</b> Die Anwesenheit als CSV, per WLAN oder über das Teilen-Menü von Android.</figcaption></figure>
+      <figure><img class="shot" loading="lazy" src="assets/shots/08-daten-wlan.png" alt="QR-Code der WLAN-Übertragung"><figcaption><b>Per WLAN.</b> Handy im selben WLAN, Code scannen, Datei laden. Das funktioniert mit iPhone, Android und PC.</figcaption></figure>
       <figure style="grid-column:1/-1"><img class="shot" loading="lazy" src="assets/shots/05-statistik.png" alt="Statistik"><figcaption><b>Statistik.</b> Zahlen je Halqa und Tanzeem, dazu ein Kreisdiagramm.</figcaption></figure>
     </div>
   </section>
@@ -102,6 +105,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);f
       <li>APK von der <a href="https://github.com/hamzaaa47/salatattendance-community/releases/latest">Release-Seite</a> laden und installieren (Android 7.0 oder neuer, „Unbekannte Quellen“ erlauben).</li>
       <li>Ersteinrichtung: Gebetszeiten, Zeitfenster, Tanzeem/Halqa und eine sechsstellige Einstellungen-PIN festlegen.</li>
       <li>Danach zeigt die Startseite das aktuelle Gebet. Außerhalb eines Fensters steht dort „Derzeit kein Gebet“ mit dem nächsten Gebet.</li>
+      <li>Daten holen: Einstellungen → Statistik und Daten → Daten. „Per WLAN übertragen“ zeigt einen QR-Code. Handy im selben WLAN verbinden, Code scannen, Datei laden. Gäste- und Firmen-WLANs trennen Geräte oft voneinander, dann geht es nicht. „Über Android teilen“ nutzt Bluetooth oder Quick Share.</li>
     </ol>
     <p class="lead" style="margin-top:18px">Zum Selbstbauen: <code>flutter pub get</code> und <code>flutter run</code>, Details im <a href="https://github.com/hamzaaa47/salatattendance-community#readme">README</a>.</p>
   </section>
